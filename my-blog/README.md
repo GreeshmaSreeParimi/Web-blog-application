@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### Cross origin
+To resolve cross orogin policy errors , add "proxy" in pacakge.json file with server address in frontend code. It makes frontend think that both the servers are running on same host.
+
+### Axios 
+a library which is used to make calls to backend from frontend
+
+### mongoDb 
+ a non relational database used to store data. install mogodb and create database using mongo compass(a UI tool to interact with mongo) and create a collection. Import mongoclient to your backend files to connect to database and store , retrieve the data. 
+
+ ### Express Js
+ It is back end web application framework for building RESTful APIs with Node.js.
