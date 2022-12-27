@@ -6,6 +6,8 @@ import ArticleListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
 import NavBar from './NavBar';
 import NotfountPage from './pages/NotFoundPage';
+import CreateAccountPage from './pages/CreateAccountPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -18,10 +20,11 @@ function App() {
             <Route path="/about" element={<AboutPage/>}></Route>
             <Route path="/articles" element={<ArticleListPage/>}></Route>
             <Route path="/articles/:articleId" element={<ArticlePage/>}></Route>
+            <Route path='/login' element={<LoginPage/>}></Route>
+            <Route path='/create-account' element={<CreateAccountPage/>}></Route>
 
             {/* path="*" indicates if user hits any route that does not exists routes , the application will be redirected to this page */}
             <Route path="*" element={<NotfountPage/>}></Route>
-
           </Routes>
         </div>
       </div>

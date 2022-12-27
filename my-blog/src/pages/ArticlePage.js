@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CommentsList from "../components/CommentsList";
 import AddCommentForm from "../components/AddCommentForm";
+import useUser from "../hooks/useUser";
 
 const ArticlePage = () => {
 
     const [articleInfo,setArticleInfo] = useState({upvotes:0,comments :[]});
     const params = useParams();
     const articleId = params.articleId; // const {articleId} = useParams(); equals to abve two lines of code . Object destructring
+    const {user,isLoading} = useUser();
 
     useEffect(()=>{
         const loadArticleInfo = async function(){
@@ -41,13 +43,14 @@ const ArticlePage = () => {
         <>
             <h1>{article.title}</h1>
             <div className="upvotes-section">
-                <button onClick={addUpvote}>Upvote</button>
+                {user ? <button onClick={addUpvote}>Upvote</button> : <button>LogIn to upVote</button>}
                 <p>This article has {articleInfo.upvotes} upvote(s)</p>
             </div>
             {article.content.map((paragraph,index) => (
                 <p key ={index}>{paragraph}</p>
             ))}
-            <AddCommentForm articleName={articleId} onArticleUpdated={(updatedArticle)=>{setArticleInfo(updatedArticle)}}></AddCommentForm>
+            {user ? <AddCommentForm articleName={articleId} onArticleUpdated={(updatedArticle)=>{setArticleInfo(updatedArticle)}}></AddCommentForm>
+            : <button>LogIn to comment</button> }
             <CommentsList comments={articleInfo.comments}></CommentsList>
             
         </>
