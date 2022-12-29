@@ -14,7 +14,6 @@ const useUser = () => {
 
     },[]);
     return {user,isLoading};
-
 }
 
 export default useUser;
