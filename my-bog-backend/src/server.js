@@ -11,21 +11,6 @@ admin.initializeApp({
     credential: admin.credential.cert(credentials),
 });
 
-let articlesInfo = [{
-    name:"learn-react",
-    upvotes: 0,
-    comments:[],
-},
-{
-    name:"learn-node",
-    upvotes: 0,
-    comments:[],
-},
-{
-    name:"mongo-db",
-    upvotes: 0,
-    comments:[],
-}];
 
 const app = express();
 app.use(express.json());
